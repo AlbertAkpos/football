@@ -6,9 +6,9 @@ data class CurrentSeasonDTO(
     @SerializedName("id")
     val id: Long,
     @SerializedName("startDate")
-    val startDate: String,
+    val startDate: String?,
     @SerializedName("endDate")
-    val endDate: String,
+    val endDate: String?,
     @SerializedName("currentMatchday")
     val currentMatchday: Any?,
     @SerializedName("winner")

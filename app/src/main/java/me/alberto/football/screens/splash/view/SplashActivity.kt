@@ -15,7 +15,7 @@ class SplashActivity : AppCompatActivity() {
         actionBar?.hide()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_spash)
-        Timer().schedule(3000) {
+        Timer().schedule(2000) {
             startActivity(Intent(this@SplashActivity, CompetitionsActivity::class.java))
             finish()
         }

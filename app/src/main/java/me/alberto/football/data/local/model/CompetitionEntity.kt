@@ -15,9 +15,9 @@ data class CompetitionEntity(
     @ColumnInfo(name = "country")
     val country: String,
     @ColumnInfo(name = "startDate")
-    val startDate: String,
+    val startDate: String?,
     @ColumnInfo(name = "endDate")
-    val endDate: String,
+    val endDate: String?,
     @ColumnInfo(name = "color")
     val color: Int
 )

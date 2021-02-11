@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="competition"
+            type="me.alberto.football.data.domain.model.Competition" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_margin="@dimen/x_sm"
+        app:cardCornerRadius="@dimen/sm">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/league_name"
+                style="@style/TextAppearance.Body1.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{ competition.name }"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="@dimen/x_sm"
+                android:layout_marginRight="@dimen/x_sm"
+                android:layout_marginLeft="@dimen/x_sm"
+                tools:text="Champions League" />
+
+            <TextView
+                android:id="@+id/country"
+                style="@style/TextAppearance.Body1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{ competition.country }"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/league_name"
+                tools:text="England" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{ @string/competition_date(competition.startDate, competition.endDate) }"
+                android:textAlignment="center"
+                style="@style/TextAppearance.Body1"
+                android:textSize="11sp"
+                app:layout_constraintBottom_toTopOf="@+id/color"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginBottom="@dimen/x_sm"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="2020-10-15 - 2020-12-12" />
+
+            <View
+                android:id="@+id/color"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sm"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:background="@color/green_200" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

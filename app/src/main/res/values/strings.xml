@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Football</string>
     <string name="splash_desc">jogging ball</string>
+    <string name="competitions">Competitions</string>
+    <string name="competition_date">%s %s</string>
+    <string name="retry">Retry</string>
 </resources>
