@@ -18,7 +18,7 @@ data class CompetitionDTO(
     @SerializedName("currentSeason")
     val currentSeason: CurrentSeasonDTO?,
     @SerializedName("numberOfAvailableSeasons")
-    val numberOfAvailableSeasons: Long,
+    val numberOfAvailableSeasons: Long?,
     @SerializedName("lastUpdated")
-    val lastUpdated: String
+    val lastUpdated: String?
 )

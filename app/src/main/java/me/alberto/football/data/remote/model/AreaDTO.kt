@@ -8,7 +8,7 @@ data class AreaDTO(
     @SerializedName("name")
     val name: String,
     @SerializedName("countryCode")
-    val countryCode: String,
+    val countryCode: String?,
     @SerializedName("ensignUrl")
     val ensignURL: Any?
 )

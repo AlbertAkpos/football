@@ -9,6 +9,7 @@ object Urls {
     const val COMPETITION_TEAMS = "/teams"
     const val TEAM = "v2/teams"
 }
+const val COLOR_RES = "color"
 
 const val COMPETITION_TABLE = "competition_table"
 fun getRandomColor(): Int {

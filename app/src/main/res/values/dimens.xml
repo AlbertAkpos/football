@@ -3,4 +3,5 @@
     <dimen name="splash_img_dim">200dp</dimen>
     <dimen name="sm">10dp</dimen>
     <dimen name="x_sm">5dp</dimen>
+    <dimen name="card_ht">130dp</dimen>
 </resources>

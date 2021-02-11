@@ -4,4 +4,5 @@
     <string name="competitions">Competitions</string>
     <string name="competition_date">%s %s</string>
     <string name="retry">Retry</string>
+    <string name="team_img_desc">team crest image</string>
 </resources>
