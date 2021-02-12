@@ -1,5 +1,6 @@
 package me.alberto.football.screens.competition.view
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +12,8 @@ import me.alberto.football.data.domain.model.Competition
 import me.alberto.football.databinding.ActivityCompetitionBinding
 import me.alberto.football.screens.competition.adapter.CompAdapter
 import me.alberto.football.screens.competition.viewmodel.CompetitionViewModel
+import me.alberto.football.screens.teams.view.TeamsActivity
+import me.alberto.football.util.COMPETITION_KEY
 import me.alberto.football.util.State
 import me.alberto.football.util.extension.beGone
 import me.alberto.football.util.extension.beVisible
@@ -69,6 +72,9 @@ class CompetitionsActivity : AppCompatActivity() {
 
 
     private fun compItemCallback(competition: Competition) {
-        //TODO Navigate to teams screen
+        val intent = Intent(this, TeamsActivity::class.java).apply {
+            putExtra(COMPETITION_KEY, competition)
+        }
+        startActivity(intent)
     }
 }

@@ -1,17 +1,21 @@
 package me.alberto.football.screens.competition.viewmodel
 
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
+import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import me.alberto.football.data.domain.repository.Repository
 import me.alberto.football.data.mapper.toDomain
+import me.alberto.football.screens.base.BaseViewModel
 import me.alberto.football.util.State
 import me.alberto.football.util.helper.NetworkHelper
 import javax.inject.Inject
 
 class CompetitionViewModel @Inject constructor(
     private val repository: Repository,
-    private val networkHelper: NetworkHelper
-) : ViewModel() {
+    networkHelper: NetworkHelper
+) : BaseViewModel(networkHelper) {
 
     private val _state = MutableLiveData<State>()
     val state: LiveData<State> = _state
@@ -23,7 +27,7 @@ class CompetitionViewModel @Inject constructor(
 
 
     fun getRemote() {
-        if (!networkHelper.isConnected()) {
+        if (!isConnected) {
             _state.postValue(State.Error("You're offline"))
             return
         }
@@ -39,7 +43,6 @@ class CompetitionViewModel @Inject constructor(
             }
         }
     }
-
 
 
 }

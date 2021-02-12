@@ -1,13 +1,10 @@
 package me.alberto.football.util.extension
 
+import android.net.Uri
 import android.view.View
 import android.widget.ImageView
-import androidx.annotation.ColorInt
-import androidx.annotation.ColorRes
-import com.bumptech.glide.Glide
-import me.alberto.football.R
-import me.alberto.football.util.COLOR_RES
-import java.util.*
+import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou
+
 
 fun View.beGone() {
     visibility = View.GONE
@@ -17,11 +14,11 @@ fun View.beVisible() {
     visibility = View.VISIBLE
 }
 
-fun ImageView.loadImageFromUrl(url: String?) {
+fun ImageView.loadSvgFromUrl(url: String?) {
     url?.let {
-        Glide.with(context)
-            .load(url)
-            .into(this)
+        GlideToVectorYou.init()
+            .with(context)
+            .load(Uri.parse(it), this)
     }
 }
 

@@ -1,5 +1,9 @@
 package me.alberto.football.data.domain.model
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class Competition(
     val id: Long,
     val name: String,
@@ -7,4 +11,4 @@ data class Competition(
     val startDate: String?,
     val endDate: String?,
     val color: Int
-)
+) : Parcelable

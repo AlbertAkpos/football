@@ -8,6 +8,7 @@ import me.alberto.football.di.modules.LocalModule
 import me.alberto.football.di.modules.RemoteModule
 import me.alberto.football.di.modules.ViewModelModule
 import me.alberto.football.screens.competition.view.CompetitionsActivity
+import me.alberto.football.screens.teams.view.TeamsActivity
 import javax.inject.Singleton
 
 @Component(modules = [DataModule::class, LocalModule::class, RemoteModule::class, ViewModelModule::class])
@@ -19,4 +20,5 @@ interface AppComponent {
     }
 
     fun inject(activity: CompetitionsActivity)
+    fun inject(activity: TeamsActivity)
 }

@@ -1,10 +1,9 @@
 package me.alberto.football.data.domain.repository
 
 import androidx.lifecycle.LiveData
-import me.alberto.football.R
-import me.alberto.football.data.domain.model.Competition
 import me.alberto.football.data.local.model.CompetitionEntity
 import me.alberto.football.data.local.source.ILocalSource
+import me.alberto.football.data.remote.response.TeamResponse
 import me.alberto.football.data.remote.source.IRemoteSource
 import javax.inject.Inject
 
@@ -19,5 +18,9 @@ class Repository @Inject constructor(
 
     override fun getCompetition(): LiveData<List<CompetitionEntity>> {
         return localSource.getCompetitions()
+    }
+
+    override suspend fun getTeams(compId: Long): TeamResponse {
+        return remoteSource.getTeams(compId)
     }
 }

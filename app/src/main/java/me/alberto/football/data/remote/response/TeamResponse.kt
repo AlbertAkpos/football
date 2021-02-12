@@ -6,7 +6,7 @@ import me.alberto.football.data.remote.model.Filter
 import me.alberto.football.data.remote.model.SeasonDTO
 import me.alberto.football.data.remote.model.TeamDTO
 
-data class TeamReponse(
+data class TeamResponse(
     @SerializedName("count")
     val count: Long,
     @SerializedName("filters")
