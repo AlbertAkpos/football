@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.coroutines.runBlocking
 import me.alberto.football.data.domain.model.Team
 import me.alberto.football.databinding.TeamItemBinding
 import me.alberto.football.util.extension.loadSvgFromUrl
@@ -37,9 +36,7 @@ class TeamsAdapter(private val clickCallback: (Team) -> Unit) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(team: Team, clickCallback: (Team) -> Unit) {
             binding.team = team
-            runBlocking {
-                binding.crest.loadSvgFromUrl(team.crestUrl)
-            }
+            binding.crest.loadSvgFromUrl(team.crestUrl)
             binding.root.setOnClickListener { clickCallback(team) }
         }
 

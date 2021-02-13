@@ -27,7 +27,7 @@ class CompetitionViewModel @Inject constructor(
 
 
     fun getRemote() {
-        if (!isConnected) {
+        if (!isConnected()) {
             _state.postValue(State.Error("You're offline"))
             return
         }

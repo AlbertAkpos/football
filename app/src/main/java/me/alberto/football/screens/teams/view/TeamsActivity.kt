@@ -1,5 +1,6 @@
 package me.alberto.football.screens.teams.view
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -10,10 +11,12 @@ import me.alberto.football.R
 import me.alberto.football.data.domain.model.Competition
 import me.alberto.football.data.domain.model.Team
 import me.alberto.football.databinding.ActivityTeamsBinding
+import me.alberto.football.screens.team.view.TeamActivity
 import me.alberto.football.screens.teams.adapter.TeamsAdapter
 import me.alberto.football.screens.teams.viewmodel.TeamsViewModel
 import me.alberto.football.util.COMPETITION_KEY
 import me.alberto.football.util.State
+import me.alberto.football.util.TEAM_KEY
 import me.alberto.football.util.extension.beGone
 import me.alberto.football.util.extension.beVisible
 import me.alberto.football.util.extension.setupToolbar
@@ -83,6 +86,9 @@ class TeamsActivity : AppCompatActivity() {
     }
 
     private fun teamCallback(team: Team) {
-
+        val intent = Intent(this, TeamActivity::class.java).apply {
+            putExtra(TEAM_KEY, team)
+        }
+        startActivity(intent)
     }
 }

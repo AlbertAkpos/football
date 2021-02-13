@@ -8,6 +8,7 @@ import dagger.multibindings.IntoMap
 import me.alberto.football.di.viewmodel.ViewModelFactory
 import me.alberto.football.di.viewmodel.ViewModelKey
 import me.alberto.football.screens.competition.viewmodel.CompetitionViewModel
+import me.alberto.football.screens.team.viewmodel.TeamViewModel
 import me.alberto.football.screens.teams.viewmodel.TeamsViewModel
 
 @Module
@@ -24,4 +25,9 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(TeamsViewModel::class)
     abstract fun bindsTeamsViewModel(teamsViewModel: TeamsViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(TeamViewModel::class)
+    abstract fun bindsTeamViewModel(teamViewModel: TeamViewModel): ViewModel
 }

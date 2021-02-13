@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Football">
-        <activity android:name=".screens.teams.view.TeamsActivity"></activity>
+        <activity android:name=".screens.team.view.TeamActivity"></activity>
+        <activity android:name=".screens.teams.view.TeamsActivity" />
         <activity android:name=".screens.competition.view.CompetitionsActivity" />
         <activity android:name=".screens.splash.view.SplashActivity">
             <intent-filter>

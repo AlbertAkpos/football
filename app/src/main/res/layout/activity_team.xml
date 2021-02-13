@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="me.alberto.football.screens.team.viewmodel.TeamViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/faint_white"
+        tools:context=".screens.team.view.TeamActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize">
+
+                <TextView
+                    android:id="@+id/club_name"
+                    style="@style/TextAppearance.Body1.Medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="22sp"
+                    tools:text="Arsenal" />
+            </com.google.android.material.appbar.MaterialToolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <ScrollView
+            android:id="@+id/main_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/club_crest"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:contentDescription="@string/team_crest"
+                    android:scaleType="fitCenter"
+                    android:layout_marginTop="@dimen/sm"
+                    app:crest="@{ viewModel.club.crestURL }"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@drawable/ic_junior_soccer" />
+
+                <TextView
+                    android:id="@+id/club_details"
+                    style="@style/TextAppearance.Body1.Medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="30dp"
+                    android:text="@string/club_details"
+                    android:textColor="@color/green_500"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/club_crest" />
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/club_details_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="@dimen/sm"
+                    android:layout_marginEnd="20dp"
+                    app:cardCornerRadius="@dimen/x_sm"
+                    app:cardElevation="1dp"
+                    app:contentPadding="@dimen/sm"
+                    app:layout_constraintTop_toBottomOf="@+id/club_details">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:id="@+id/found_container"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
+                                style="@style/TextAppearance.Body1.Medium"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/founded" />
+
+                            <TextView
+                                style="@style/TextAppearance.Body1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:textSize="@dimen/sm_txt"
+                                android:text="@{ viewModel.club.founded }"
+                                tools:text="1994" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/nick_name_container"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2"
+                            android:layout_marginTop="@dimen/x_sm"
+                            app:layout_constraintTop_toBottomOf="@+id/found_container">
+
+                            <TextView
+                                style="@style/TextAppearance.Body1.Medium"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/nick_name" />
+
+                            <TextView
+                                style="@style/TextAppearance.Body1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:textSize="@dimen/sm_txt"
+                                android:text="@{ viewModel.club.shortName }"
+                                tools:text="Founded" />
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:id="@+id/address_container"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2"
+                            android:layout_marginTop="@dimen/x_sm"
+                            app:layout_constraintTop_toBottomOf="@+id/nick_name_container">
+
+                            <TextView
+                                style="@style/TextAppearance.Body1.Medium"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/address" />
+
+                            <TextView
+                                style="@style/TextAppearance.Body1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:textSize="@dimen/sm_txt"
+                                android:text="@{ viewModel.club.address }"
+                                tools:text="Founded" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/phone_number_container"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2"
+                            android:layout_marginTop="@dimen/x_sm"
+                            app:layout_constraintTop_toBottomOf="@+id/address_container">
+
+                            <TextView
+                                style="@style/TextAppearance.Body1.Medium"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/phone_number" />
+
+                            <TextView
+                                style="@style/TextAppearance.Body1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:textSize="@dimen/sm_txt"
+                                android:text="@{ viewModel.club.phone }"
+                                tools:text="Founded" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/website_container"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2"
+                            android:layout_marginTop="@dimen/x_sm"
+                            app:layout_constraintTop_toBottomOf="@+id/phone_number_container">
+
+                            <TextView
+                                style="@style/TextAppearance.Body1.Medium"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/website" />
+
+                            <TextView
+                                style="@style/TextAppearance.Body1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:textSize="@dimen/sm_txt"
+                                android:text="@{ viewModel.club.website }"
+                                tools:text="Founded" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/email_container"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2"
+                            android:layout_marginTop="@dimen/x_sm"
+                            app:layout_constraintTop_toBottomOf="@+id/website_container">
+
+                            <TextView
+                                style="@style/TextAppearance.Body1.Medium"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/email_address" />
+
+                            <TextView
+                                style="@style/TextAppearance.Body1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:textSize="@dimen/sm_txt"
+                                android:text="@{ viewModel.club.email }"
+                                tools:text="Founded" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/club_colors_container"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2"
+                            android:layout_marginTop="@dimen/x_sm"
+                            app:layout_constraintTop_toBottomOf="@+id/email_container">
+
+                            <TextView
+                                style="@style/TextAppearance.Body1.Medium"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/club_colors" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:teamColors="@{ viewModel.club.clubColors }" />
+
+                        </LinearLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:id="@+id/team_players"
+                    style="@style/TextAppearance.Body1.Medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="@dimen/md"
+                    android:text="@string/team_players"
+                    android:textColor="@color/green_500"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/club_details_container" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/players_recycler"
+                    android:layout_width="match_parent"
+                    android:background="@color/faint_white"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/md"
+                    android:layout_marginEnd="@dimen/md"
+                    android:layout_marginTop="@dimen/md"
+                    android:paddingBottom="@dimen/x_sm"
+                    android:nestedScrollingEnabled="false"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@+id/team_players"
+                    app:players="@{ viewModel.club.squad }"
+                    tools:listitem="@layout/player_item" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminateDrawable="@drawable/progress_bar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

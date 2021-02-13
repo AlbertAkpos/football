@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="player"
+            type="me.alberto.football.data.domain.model.Player" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/x_sm"
+        app:cardCornerRadius="@dimen/x_sm"
+        app:cardElevation="1dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/sm">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/player_img"
+                android:layout_width="@dimen/img_size"
+                android:layout_height="@dimen/img_size"
+                android:src="@drawable/ic_junior_soccer"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/player_name"
+                style="@style/TextAppearance.Body1.Medium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/sm"
+                android:layout_marginTop="@dimen/sm"
+                android:text="@{ player.name }"
+                app:layout_constraintEnd_toStartOf="@+id/player_country"
+                app:layout_constraintStart_toEndOf="@+id/player_img"
+                app:layout_constraintTop_toTopOf="@+id/player_img"
+                app:layout_constraintWidth_percent="0.5"
+                tools:text="Christiano Ronaldo" />
+
+            <TextView
+                android:id="@+id/textView2"
+                style="@style/TextAppearance.Body1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sm_txt"
+                android:text="@{ player.position }"
+                app:layout_constraintStart_toStartOf="@+id/player_name"
+                app:layout_constraintTop_toBottomOf="@+id/player_name"
+                tools:text="Forward" />
+
+            <TextView
+                android:id="@+id/player_country"
+                style="@style/TextAppearance.Body1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sm"
+                android:textSize="@dimen/sm_txt"
+                android:text="@{ player.nationality }"
+                android:textAlignment="textEnd"
+                android:textColor="@color/green_500"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/player_img"
+                app:layout_constraintWidth_percent="0.3"
+                tools:text="Portugal" />
+
+            <TextView
+                android:id="@+id/player_dob"
+                style="@style/TextAppearance.Body1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sm_txt"
+                android:text="@{ player.dateOfBirth }"
+                app:layout_constraintEnd_toEndOf="@+id/player_country"
+                app:layout_constraintTop_toBottomOf="@+id/player_country"
+                tools:text="2020/05/4" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

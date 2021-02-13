@@ -4,4 +4,7 @@
     <dimen name="sm">10dp</dimen>
     <dimen name="x_sm">5dp</dimen>
     <dimen name="card_ht">130dp</dimen>
+    <dimen name="md">20dp</dimen>
+    <dimen name="img_size">56dp</dimen>
+    <dimen name="sm_txt">14sp</dimen>
 </resources>
